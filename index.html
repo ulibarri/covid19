@@ -3,9 +3,12 @@
 
 <body>
 
-    <h1>My Web Page</h1>
+    <h1>Representación gráfica del "mapa de calor" del gobierno del estado de Colima del 26 Mayo al 27 Junio de 2020
+    </h1>
 
-    <div id="piechart"></div>
+    <div id="acumulados"></div>
+    <div id="activos"></div>
+    <div id="defunciones"></div>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -16,21 +19,50 @@
 
         // Draw the chart and set the chart values
         function drawChart() {
-            var data = google.visualization.arrayToDataTable([
+            var acumulados = google.visualization.arrayToDataTable([
                 ['Task', 'Hours per Day'],
-                ['Work', 8],
-                ['Eat', 2],
-                ['TV', 4],
-                ['Gym', 2],
-                ['Sleep', 8]
+                ['MZO -> 342', 342],
+                ['TEC -> 62', 62],
+                ['VA  -> 39', 39],
+                ['COL -> 41', 41]
             ]);
 
             // Optional; add a title and set the width and height of the chart
-            var options = { 'title': 'My Average Day', 'width': 550, 'height': 400 };
+            var optionsAcumulados = { 'title': 'Casos acumulados', 'width': 550, 'height': 400 };
 
             // Display the chart inside the <div> element with id="piechart"
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-            chart.draw(data, options);
+            var chart = new google.visualization.PieChart(document.getElementById('acumulados'));
+            chart.draw(acumulados, optionsAcumulados);
+
+            var activos = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['MZO -> 112', 112],
+                ['TEC -> 21', 21],
+                ['VA  -> 11', 11],
+                ['COL -> 13', 13]
+            ]);
+
+            // Optional; add a title and set the width and height of the chart
+            var optionsActivos = { 'title': 'Casos activos', 'width': 550, 'height': 400 };
+
+            // Display the chart inside the <div> element with id="piechart"
+            var chart = new google.visualization.PieChart(document.getElementById('activos'));
+            chart.draw(activos, optionsActivos);
+
+            var defunciones = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['MZO -> 49', 49],
+                ['TEC -> 7', 7],
+                ['VA  -> 3', 3],
+                ['COL -> 7', 7]
+            ]);
+
+            // Optional; add a title and set the width and height of the chart
+            var optionsDefunciones = { 'title': 'Defunciones', 'width': 550, 'height': 400 };
+
+            // Display the chart inside the <div> element with id="piechart"
+            var chart = new google.visualization.PieChart(document.getElementById('defunciones'));
+            chart.draw(defunciones, optionsDefunciones);
         }
     </script>
 
